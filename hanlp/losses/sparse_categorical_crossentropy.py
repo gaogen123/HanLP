@@ -59,5 +59,5 @@ class MaskedSparseCategoricalCrossentropyOverBatchFirstDim(object):
         active_labels = tf.boolean_mask(y_true, active_loss)
         active_logits = tf.boolean_mask(y_pred, active_loss)
         loss = tf.keras.losses.sparse_categorical_crossentropy(active_labels, active_logits, from_logits=True)
-        loss = tf.reduce_sum(loss) / tf.cast(tf.shape(y_true)[0], tf.float32)
         return loss
+        loss = tf.reduce_sum(loss) / tf.cast(tf.shape(y_true)[0], tf.float32)
